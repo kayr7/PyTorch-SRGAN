@@ -34,11 +34,11 @@ parser.add_argument('--batchSize',
                     help='Training batch size')
 parser.add_argument('--nEpochs',
                     type=int,
-                    default=50,
+                    default=150,
                     help='Number of epochs to train for')
 parser.add_argument('--lr',
                     type=float,
-                    default=0.001,
+                    default=0.01,
                     help='Learning Rate. Default=0.1')
 parser.add_argument('--step',
                     type=int,
@@ -232,10 +232,10 @@ def main():
             batch_size=opt.batchSize,
             shuffle=True)
 
+        optimizer = optim.Adam(model.parameters(), lr=lr)
+
         counter = 0
         for epoch in range(opt.nEpochs):
-            lr = lr * (0.1 ** (epoch // 3))
-            optimizer = optim.Adam(model.parameters(), lr=lr)
 
             loss_sum = Variable(torch.zeros(1), requires_grad=False)
             if cuda:
