@@ -1,7 +1,7 @@
 # PyTorch-SRGAN
 <p align="center"> Source: <img src="small.jpg" /> SRResNetVgg5,4: <img src="superresolution.jpg" /> (Ground Truth: <img src="groundtruth.jpg" />)</p>
 
-PyTorch version of the paper: "Photo-Realistic Single Image Super-Resolution Using a Generative Adversarial Network"
+PyTorch version of the paper: [Photo-Realistic Single Image Super-Resolution Using a Generative Adversarial Network](https://arxiv.org/abs/1609.04802) 
 (currently it does not implement the GAN, but the srresnet + vgg19-5,4 loss)
 
 you can train a net from scratch:
