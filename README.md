@@ -1,6 +1,6 @@
 # PyTorch-SRGAN
 PyTorch version of the paper: "Photo-Realistic Single Image Super-Resolution Using a Generative Adversarial Network"
-
+(currently it does not implement the GAN, but the srresnet + vgg19-5,4 loss)
 
 you can train a net from scratch:
 (optionally start training with just the pixel-wise loss on the resnet part:
