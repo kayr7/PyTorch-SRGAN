@@ -11,4 +11,4 @@ python srresnet.py --image-dir traindir --cuda --images 16384 --batchSize 16
 
 
 and then inference with the arguments:
---pretrained model/model_epoch_80.pth --testing --test-image /media/rottmann/Volume/pytorch/examples/super_resolution/dataset/BSDS300/images/train/100075.jpg
+--pretrained model/model_epoch_80.pth --testing --test-image BSDS300/images/train/100075.jpg
