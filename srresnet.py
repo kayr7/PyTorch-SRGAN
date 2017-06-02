@@ -265,16 +265,20 @@ def main():
                     percep_loss = criterion(out_percep, out_percep_real)
 #                    loss_relation = percep_loss.div(loss)
 
-                    loss.add(percep_loss.mul(opt.percep_scale))  # loss_relation))
+                    loss = loss.add(percep_loss.mul(opt.percep_scale))  # loss_relation))
 
                 loss.backward()
                 nn.utils.clip_grad_norm(model.parameters(), opt.clip)
                 loss_sum.add_(loss)
                 optimizer.step()
 
-                if counter % 100 == 0:
+                if counter % 400 == 0:
                     print('sum_of_loss = {}'.format(
                         loss_sum.data.select(0, 0)))
+                    loss_sum = Variable(torch.zeros(1), requires_grad=False)
+                    if cuda:
+                        loss_sum = loss_sum.cuda()
+
                     save_checkpoint(model, epoch)
                     input = torch.clamp(input.mul(tstd).add(tmean).mul(
                         255.0), min=0., max=255.0).byte()[0].data.cpu().numpy().transpose(1, 2, 0)
